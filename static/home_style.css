@@ -1,0 +1,141 @@
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 2px #fff, 0 0 4px #baadad, 0 0 6px #9d6e6e, 0 0 8px #a84d4d;
+    }
+    50% {
+        text-shadow: 0 0 3px #fff, 0 0 6px #baadad, 0 0 9px #9d6e6e, 0 0 12px #a84d4d;
+    }
+    100% {
+        text-shadow: 0 0 2px #fff, 0 0 4px #baadad, 0 0 6px #9d6e6e, 0 0 8px #a84d4d;
+    }
+}
+
+.animated-text {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('/static/Images/ATM2.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #baadad;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    /* background-color: #b3b7e6; */
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-menu li {
+    display: inline;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+    background-color: #575757;
+}
+
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: max-content;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 0;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    display: block;
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
