@@ -42,7 +42,7 @@ class SignupForms(FlaskForm):
 
 class EmailCheck(FlaskForm):
     email = EmailField('Email', validators=[DataRequired()])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Validate')
 
 
 
@@ -56,7 +56,7 @@ class ResetPassForms(FlaskForm):
         DataRequired(),
         EqualTo('new_password', message='Passwords must match')
     ])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Reset')
 
 
 
@@ -73,13 +73,13 @@ class Create_account(FlaskForm):
         DataRequired(),
         Length(min=8, max=8, message='Account number must be 8 characters long')
     ])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Create')
 
 
 
 class Check_account(FlaskForm):
     Account_number = StringField('Account Number', validators=[DataRequired()])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Validate')
 
 
 
@@ -89,7 +89,7 @@ class Create_pin(FlaskForm):
         Length(min=4, max=4, message='PIN must be 4 characters long')
     ])
     balance = StringField('Amount')
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Create')
 
 
 
@@ -102,17 +102,23 @@ class Update_pin(FlaskForm):
         DataRequired(),
         EqualTo('new_pin', message='Pin must match')
     ])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Update')
 
 
 
 class Check_details(FlaskForm):
     Account_number = StringField('Account Number', validators=[DataRequired()])
     pin = PasswordField('Pin', validators=[DataRequired()])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Validate')
     
 
 
 class Add_money(FlaskForm):
     amount = StringField('Amount', validators=[DataRequired()])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Add')
+
+
+
+class Withdraw(FlaskForm):
+    amount = StringField('Amount', validators=[DataRequired()])
+    submit = SubmitField('Withdraw')
