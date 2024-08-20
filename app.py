@@ -1,6 +1,6 @@
-from flask import render_template, make_response, request, url_for, flash, redirect, session
+from flask import render_template, make_response, request, url_for, flash, redirect, session, json, jsonify
 from db_table import app
-from forms import SignupForms, LoginForms, EmailCheck, ResetPassForms, Create_account, Create_pin, Check_account, Update_pin, Check_details, Add_money
+from forms import SignupForms, LoginForms, EmailCheck, ResetPassForms, Create_account, Create_pin, Check_account, Update_pin, Check_details, Add_money, Withdraw
 from atm import Login, ATMBank
 from db_table import User, Bank
 
@@ -18,7 +18,6 @@ def login():
     if form.validate_on_submit():
         data = Login()
         success, message= data.check_user(request)
-
         if not success:
             flash(message, 'danger')
         
@@ -97,7 +96,6 @@ def forget_password():
 def reset_password():
     form = ResetPassForms()
     user_data = session.get('user_data')
-    # print(user_data)
 
     if not user_data:
         flash("Session expired or invalid request.", "danger")
@@ -115,7 +113,7 @@ def reset_password():
         else:
             flash(message,'danger')
 
-    return render_template('reset_password.html', form=form, user_data=user_data)
+    return render_template('reset_password.html', form=form)
 
 
 
@@ -180,11 +178,11 @@ def create_pin():
 
     if not user_data:
         flash("Session expired or invalid request.", "danger")
-        return redirect(url_for('forget_password'))
+        return redirect(url_for('home'))
     
     if form.validate_on_submit():
         acc = ATMBank()
-        success, message = acc.create_pin(request, user_data['acc_number'], user_data['pin'])
+        success, message = acc.create_pin(request, user_data['Account No'], user_data['ID'])
 
         if not success:
             flash(message, 'danger')
@@ -205,11 +203,11 @@ def update_pin():
 
     if not user_data:
         flash("Session expired or invalid request.", "danger")
-        return redirect(url_for('forget_password'))
+        return redirect(url_for('home'))
 
     if form.validate_on_submit():
         acc = ATMBank()
-        success, message = acc.update_pin(request, user_data['acc_number'], user_data['pin'])
+        success, message = acc.update_pin(request, user_data['Account No'], user_data['ID'])
 
         if not success:
             flash(message, 'danger')
@@ -293,7 +291,7 @@ def add_amount():
 
 @app.route('/withdraw',methods = ['GET','POST'])
 def withdraw():
-    form = Add_money()
+    form = Withdraw()
     pin_id = session.get('id')
 
     if form.validate_on_submit():
@@ -317,18 +315,17 @@ def user_details():
     
     if not user_data:
         flash("Session expired or invalid request.", "danger")
-        return redirect(url_for('forget_password'))
+        return redirect(url_for('home'))
     
-    fname = user_data['fname']
-    lname = user_data['lname']
+    new_data = {
+        'Account No' : user_data['Account No'],
+        'First Name': user_data['First Name'],
+        'Last Name': user_data['Last Name']
+    }
     
-    message = f"The first name of user is {fname}\n and last name of user is {lname}"
-
-    flash(message, 'balance')
-
-    return render_template('user_details.html')
+    session.pop('user_data', None)
+    return render_template('user_details.html', data = new_data)
         
 
-
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    app.run(debug=True, port=8000)
