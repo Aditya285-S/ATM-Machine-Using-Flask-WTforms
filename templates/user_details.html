@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User details - ATM Machine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_details.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="navbar-logo animated-text">ATM Machine</a>
+            <ul class="navbar-menu">
+                <li><a href="{{ url_for('home') }}">HOME</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <h2>User Details</h2>
+
+        {% for key, value in data.items() %}
+            <div>
+                <table>
+                    <tr>
+                        <td>{{ key }} :</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+        {% endfor %}
+
+    </div>
+    
+
+    <script>
+        setTimeout(function() {
+            var popups = document.querySelectorAll('.flash-messages');
+            popups.forEach(function(popup) {
+                popup.style.display = 'none';
+            });
+        }, 5000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 4px #fff, 0 0 8px #ff8080, 0 0 12px #ff4d4d, 0 0 16px #ff1a1a;
+    }
+    50% {
+        text-shadow: 0 0 6px #fff, 0 0 12px #ff8080, 0 0 18px #ff4d4d, 0 0 24px #ff1a1a;
+    }
+    100% {
+        text-shadow: 0 0 4px #fff, 0 0 8px #ff8080, 0 0 12px #ff4d4d, 0 0 16px #ff1a1a;
+    }
+}
+
+.animated-text {
+    font-size: 26px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    background: url('/static/Images/ATM2.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #444;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-logo {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-menu li {
+    display: inline;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.05);
+}
+
+/* Form Container Styles */
+.form-container {
+    background-color: #dcdef5;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    min-width: 300px;
+    margin: 40px auto;
+    backdrop-filter: blur(10px);
+}
+
+.form-container h2 {
+    text-align:center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 28px;
+    border-bottom: 2px solid #ff4d4d;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+div.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.signup-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.signup-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.signup-container .signup-link {
+    color: #131097;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.signup-container .signup-link:hover {
+    text-decoration: underline;
+}
+
+.signup-container .forgetpass-link {
+    color: #2a2e63;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.signup-container .forgetpass-link:hover {
+    text-decoration: underline;
+}
+
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: max-content;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.flash-messages1 {
+    margin-top: 30px;
+}
+
+.alert {
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 0;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.alert-danger {
+    color: #ecadaa;
+    background-color: #8e1414;
+    border-color: #1b1212;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert1-balance {
+    color: #122115;
+    background-color: #7147dd;
+    border-color: #c3e6cb;
+    font-weight: bolder;
+}
