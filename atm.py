@@ -109,10 +109,10 @@ class ATMBank:
 
         if existing_acc:
             user_data = {
-                'acc_number': existing_acc.account_number,
-                'pin' : existing_acc.acc_id,
-                'fname': existing_acc.fname,
-                'lname': existing_acc.lname
+                'Account No': existing_acc.account_number,
+                'ID' : existing_acc.acc_id,
+                'First Name': existing_acc.fname,
+                'Last Name': existing_acc.lname
             }
             return True, 'Bank account number Existed', user_data
         
